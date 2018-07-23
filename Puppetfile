@@ -1,0 +1,2 @@
+mod "puppetlabs/ntp", :latest 
+
