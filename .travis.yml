@@ -1,4 +1,5 @@
-language: ruby
+# https://github.com/travis-ci/docs-travis-ci-com/issues/910
+language: minimal
 dist: trusty
 rvm:
   - 2.5.1
