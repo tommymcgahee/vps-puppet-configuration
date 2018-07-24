@@ -1,12 +1,9 @@
 # https://github.com/travis-ci/docs-travis-ci-com/issues/910
 language: minimal
 dist: trusty
-rvm:
-  - 2.5.1
 before_install:
   - bash scripts/install.sh
 script:
-  - echo 'Ready to deploy'
+  - bash scripts/build.sh
 after_success:
-  #- bash scripts/deploy.sh
-  - echo 'pretend we deployed'
+  - bash scripts/deploy.sh
