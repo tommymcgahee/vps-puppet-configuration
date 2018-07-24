@@ -1,9 +1,24 @@
 # https://github.com/travis-ci/docs-travis-ci-com/issues/910
 language: minimal
 dist: trusty
+sudo: required
+
+env:
+  # Using matrix in case I want to add additional OSes to repeat the tests against
+  matrix:
+    - OS_TYPE=centos OS_VERSION=7
+
+services:
+  - docker
+
 before_install:
-  - bash scripts/install.sh
+  - sudo apt-get update
+  - sudo docker pull centos:centos${OS_VERSION}
+  - sudo docker build --no-cache --rm --file=docker/Dockerfile.centos-${OS_VERSION}
+  # - bash scripts/install.sh
+
 script:
   - bash scripts/build.sh
+
 after_success:
   - bash scripts/deploy.sh
