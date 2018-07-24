@@ -1,3 +1,11 @@
-language: ruby 
+language: ruby
+dist: trusty
+rvm:
+  - 2.5.1
+before_install:
+  - bash scripts/install.sh
+script:
+  - echo 'Ready to deploy'
 after_success:
-  - bash scripts/deploy.sh
+  #- bash scripts/deploy.sh
+  - echo 'pretend we deployed'
