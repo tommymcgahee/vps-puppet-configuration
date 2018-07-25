@@ -4,7 +4,7 @@ dist: trusty
 sudo: required
 
 env:
-  # Using matrix in case I want to add additional OSes to repeat the tests against
+  # Matrix for testing against multiple OSes as needed in the future
   matrix:
     - OS_TYPE=centos OS_VERSION=7
 
@@ -14,8 +14,7 @@ services:
 before_install:
   - sudo apt-get update
   - sudo docker pull centos:centos${OS_VERSION}
-  - sudo docker build --no-cache --rm --file=docker/Dockerfile.centos-${OS_VERSION} .
-  # - sudo docker build --no-cache --rm --file=travis/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible travis
+  - sudo docker build --no-cache --rm --file=docker/Dockerfile.centos-${OS_VERSION} --tag=${distribution}-${version}:puppet .
 
   # - bash scripts/install.sh
 
