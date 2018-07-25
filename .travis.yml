@@ -14,7 +14,7 @@ services:
 before_install:
   - sudo apt-get update
   - sudo docker pull centos:centos${OS_VERSION}
-  - sudo docker build --no-cache --rm --file=docker/Dockerfile.centos-${OS_VERSION} --tag=${distribution}-${version} .
+  - sudo docker build --no-cache --rm --file=docker/Dockerfile.centos-${OS_VERSION} .
 
   # - bash scripts/install.sh
 
