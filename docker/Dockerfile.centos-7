@@ -28,4 +28,4 @@ COPY deploy_rsa /root/.ssh/
 COPY docker/r10k.yaml /
 
 # ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
-CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "--config /r10k.yaml"]
+CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "--config" "/r10k.yaml"]
