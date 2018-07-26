@@ -20,7 +20,7 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm 
     yum update -y && \
     yum install -y puppet-agent-"$PUPPET_AGENT_VERSION" && \
     yum clean all && \
-    /opt/puppetlabs/puppet/bin/gem install r10k
+    /opt/puppetlabs/puppet/bin/gem install r10k && \
     /opt/puppetlabs/puppet/bin/r10k version
 
 
@@ -29,5 +29,5 @@ ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/b
 COPY deploy_rsa /root/.ssh/
 COPY docker/r10k.yaml /
 
-# ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
-CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "--config" "/r10k.yaml"]
+ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
+CMD ["deploy", "--config" "/r10k.yaml"]
