@@ -29,5 +29,7 @@ ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/b
 COPY deploy_rsa /root/.ssh/
 COPY docker/r10k.yaml /
 
-ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
-CMD ["deploy", "--config" "/r10k.yaml"]
+# ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
+# CMD ["deploy", "--config" "/r10k.yaml"]
+
+CMD /opt/puppetlabs/puppet/bin/r10k deploy --config /r10k.yaml
