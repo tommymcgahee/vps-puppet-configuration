@@ -18,7 +18,7 @@ before_install:
   # - eval "$(ssh-agent -s)"
   - chmod 600 deploy_rsa
   # - ssh-add deploy_rsa
-  - cp deploy_rsa /root/.ssh/
+  - sudo cp deploy_rsa /root/.ssh/
   - sudo docker pull centos:centos${OS_VERSION}
   - sudo docker build --no-cache --rm --file=docker/Dockerfile.centos-${OS_VERSION} .
 
