@@ -31,5 +31,5 @@ COPY docker/r10k.yaml /
 
 # ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
 # CMD ["deploy", "--config" "/r10k.yaml"]
-
-CMD /opt/puppetlabs/puppet/bin/r10k deploy environment -p
+# CMD /opt/puppetlabs/puppet/bin/r10k deploy environment -p
+CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "environment", "-p"]
