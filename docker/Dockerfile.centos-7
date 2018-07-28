@@ -23,7 +23,7 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm 
     yum install -y puppet-agent-"$PUPPET_AGENT_VERSION" && \
     yum install -y git && \
     yum clean all
-    
+
 RUN /opt/puppetlabs/puppet/bin/gem install r10k:"$R10K_VERSION"
 
 COPY keys/id_rsa /root/.ssh/
@@ -34,6 +34,6 @@ RUN chmod 600 /root/.ssh/id_rsa && ssh-keyscan -t rsa github.com > /root/.ssh/kn
     /opt/puppetlabs/bin/puppet module list --tree
 
 ENTRYPOINT ["/opt/puppetlabs/bin/puppet"]
-CMD ["apply", "--test"]
+CMD ["apply"]
 
 COPY docker/Dockerfile.centos-7 /
