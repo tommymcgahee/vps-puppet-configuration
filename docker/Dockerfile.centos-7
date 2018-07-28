@@ -15,7 +15,7 @@ LABEL org.label-schema.maintainer="Puppet Release Team <release@puppet.com>" \
       org.label-schema.vcs-ref="b75674e1fbf52f7821f7900ab22a19f1a10cafdb" \
       org.label-schema.build-date="2018-05-09T20:10:12Z" \
       org.label-schema.schema-version="1.0" \
-      org.label-schema.dockerfile="/Dockerfile"
+      org.label-schema.dockerfile="/Dockerfile.centos-7"
 
 RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm && \
     yum upgrade -y && \
@@ -36,4 +36,4 @@ ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
 # CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "environment", "-p", "--config", "/r10k.yaml"]
 CMD ["help"]
 
-COPY Dockerfile /
+COPY Dockerfile.centos-7 /
