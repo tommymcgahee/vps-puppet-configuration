@@ -36,4 +36,4 @@ ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
 # CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "environment", "-p", "--config", "/r10k.yaml"]
 CMD ["help"]
 
-COPY Dockerfile.centos-7 /
+COPY docker/Dockerfile.centos-7 /
