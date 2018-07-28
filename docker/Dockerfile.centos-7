@@ -2,6 +2,8 @@
 FROM centos:7
 
 ENV PUPPET_AGENT_VERSION="5.5.4"
+ENV R10K_VERSION="2.5.5"
+ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
 
 LABEL org.label-schema.maintainer="Puppet Release Team <release@puppet.com>" \
       org.label-schema.vendor="Puppet" \
@@ -20,9 +22,9 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm 
     yum update -y && \
     yum install -y puppet-agent-"$PUPPET_AGENT_VERSION" && \
     yum install -y git && \
-    yum clean all && \
+    yum clean all
 
-ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
+RUN /opt/puppetlabs/puppet/bin/gem install r10k:"$R10K_VERSION"
 
 # COPY keys/id_rsa /root/.ssh/
 # COPY docker/r10k.yaml /
@@ -34,4 +36,5 @@ ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
 # CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "environment", "-p", "--config", "/r10k.yaml"]
 CMD ["help"]
 
+COPY Dockerfile /
 COPY Dockerfile /
