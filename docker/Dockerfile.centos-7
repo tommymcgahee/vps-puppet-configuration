@@ -25,7 +25,7 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm 
 
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
 
-COPY deploy_rsa /root/.ssh/
+# COPY deploy_rsa /root/.ssh/
 COPY docker/r10k.yaml /
 
 # ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
