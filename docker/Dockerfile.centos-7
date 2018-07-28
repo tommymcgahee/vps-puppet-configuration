@@ -28,7 +28,8 @@ ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/b
 COPY keys/github_deploy_key /root/.ssh/
 COPY docker/r10k.yaml /
 
-RUN ssh-add /root/.ssh/github_deploy_key && \
+RUN eval "$(ssh-agent -s)" && \
+    ssh-add /root/.ssh/github_deploy_key && \
     rm /root/.ssh/github_deploy_key
 
 # ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
