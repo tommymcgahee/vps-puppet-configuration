@@ -29,6 +29,7 @@ COPY keys/github_deploy_key /root/.ssh/
 COPY docker/r10k.yaml /
 
 RUN eval "$(ssh-agent -s)" && \
+    chmod 600 /root/.ssh/github_deploy_key && \
     ssh-add /root/.ssh/github_deploy_key && \
     rm /root/.ssh/github_deploy_key
 
