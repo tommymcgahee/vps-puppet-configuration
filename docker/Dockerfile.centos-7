@@ -32,6 +32,6 @@ ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/b
 
 ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
 # CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "environment", "-p", "--config", "/r10k.yaml"]
-CMS ["help"]
+CMD ["help"]
 
 COPY Dockerfile /
