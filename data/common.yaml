@@ -4,4 +4,4 @@ version: 5
 apache::vhosts:
   tommymcgahee.com:
     port: '80'
-    docroot: '/var/www/'
+    docroot: '/var/www/html/'
