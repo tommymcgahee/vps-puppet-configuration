@@ -3,6 +3,10 @@ node default {
     servers => lookup('chrony::servers', {merge => unique})
   }
 
-  include apache
+  class { 'apache':
+    default_vhost => false
+  }
 
+  $myApacheVhosts = lookup('apache::vhosts', {})
+  create_resources('apache::vhost', $myApacheVhosts)
 }
