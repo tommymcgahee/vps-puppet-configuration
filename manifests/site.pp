@@ -1,1 +1,2 @@
-lookup(classes) 
+include ntp
+include apache
