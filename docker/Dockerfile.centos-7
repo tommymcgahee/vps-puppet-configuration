@@ -23,6 +23,8 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm 
     yum install -y puppet-agent-"$PUPPET_AGENT_VERSION" && \
     yum install -y git && \
     yum clean all
+    setstatus
+
 
 RUN /opt/puppetlabs/puppet/bin/gem install r10k:"$R10K_VERSION"
 
