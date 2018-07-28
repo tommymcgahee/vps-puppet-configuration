@@ -25,7 +25,7 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm 
 
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
 
-COPY github_deploy_key /root/.ssh/
+COPY keys/github_deploy_key /root/.ssh/
 COPY docker/r10k.yaml /
 
 RUN sudo eval "$(ssh-agent -s)" && \
