@@ -31,6 +31,8 @@ COPY docker/r10k.yaml /
 
 RUN chmod 600 /root/.ssh/id_rsa && ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
 
+VOLUME ["/opt/puppetlabs/r10k/cache/", "/etc/puppetlabs/code"]
+
 ENTRYPOINT ["/opt/puppetlabs/puppet/bin/r10k"]
 CMD ["deploy", "environment", "-p", "--config", "/r10k.yaml"]
 

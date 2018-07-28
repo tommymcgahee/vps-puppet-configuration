@@ -71,7 +71,7 @@ git:
   # As of 1.5.0 r10k can interact with Git repositories in two ways - by
   # shelling out to the 'git' executable, and by using libgit2 through the
   # 'rugged' library.
-  provider: 'shellgit' # Either 'shellgit' or 'rugged', defaults to 'shellgit'
+  # provider: 'shellgit' # Either 'shellgit' or 'rugged', defaults to 'shellgit'
 
   # The 'private_key' setting sets the the SSH private key to use for remote
   # Git repositories accessed over SSH.
