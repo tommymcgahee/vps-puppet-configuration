@@ -1,3 +1,4 @@
 ---
-  classes: 
-    - include ntp
+  classes:
+    - ntp
+    - apache
