@@ -22,7 +22,7 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm 
     yum update -y && \
     yum install -y puppet-agent-"$PUPPET_AGENT_VERSION" && \
     yum install -y git && \
-    yum clean all
+    yum clean all && \
     sestatus
 
 
