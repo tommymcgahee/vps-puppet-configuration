@@ -35,4 +35,4 @@ RUN chmod 600 /root/.ssh/id_rsa && \
 # CMD ["deploy", "--config" "/r10k.yaml"]
 # CMD /opt/puppetlabs/puppet/bin/r10k deploy environment -p
 
-CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "environment", "-p"]
+CMD ["/opt/puppetlabs/puppet/bin/r10k", "deploy", "environment", "-p", "--config", "/r10k.yaml"]
