@@ -10,7 +10,7 @@ class profile::sinatra {
     provider => 'gem',
     alias    => 'ruby-thin',
     ensure   => 'installed',
-    require  => Class['profile::dev-tools']
+    require  => Class['profile::dev_tools']
   }
 
 }
