@@ -4,7 +4,7 @@ node default {
   }
 
   class { 'apache':
-    default_vhost => false
+    default_vhost => true
   }
 
   $myApacheVhosts = lookup('apache::vhosts', {})
