@@ -1,4 +1,4 @@
-class { 'profile::apache':
+class profile::apache {
 
   class { 'apache':
     default_vhost => false
