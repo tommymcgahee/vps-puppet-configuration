@@ -11,7 +11,7 @@ apache::vhosts:
   tommymcgahee.com:
     port: '80'
     docroot: '/var/www/html/'
-    docroot_owner: apache
-    docroot_group: apache
-    logroot_owner: apache
-    logroot_group: apache
+    docroot_owner: 'apache'
+    docroot_group: 'apache'
+    logroot_owner: 'apache'
+    logroot_group: 'apache'
