@@ -18,5 +18,9 @@ node default {
     group   => 'apache'
   }
 
+  file { '/var/log/httpd':
+    ensure  => 'directory,
+    mode    => '0755'
+  }
 
 }
