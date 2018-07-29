@@ -14,7 +14,7 @@ node default {
     ensure => 'directory',
     owner  => 'apache',
     group  => 'apache',
-    mode   => 0755
+    mode   => '0755'
   }
 
   file { '/var/log/httpd/access_log':
