@@ -1,0 +1,6 @@
+class profile::dev-tools {
+  package { 'ruby-devel':
+    provider => 'yum',
+    ensure   => 'installed',
+  }
+}

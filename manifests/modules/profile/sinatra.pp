@@ -1,15 +1,16 @@
-class profile::gems {
+class profile::sinatra {
 
   package { 'sinatra':
     provider => 'gem',
-    alias    => 'ruby-sinatras',
+    alias    => 'ruby-sinatra',
     ensure   => 'installed'
   }
 
   package { 'thin':
     provider => 'gem',
     alias    => 'ruby-thin',
-    ensure   => 'installed'
+    ensure   => 'installed',
+    require  => Class['profile::dev-tools']
   }
 
 }
