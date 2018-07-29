@@ -12,7 +12,7 @@ node default {
 
   file { '/var/log/httpd':
     ensure  => 'directory',
-    recurse => remote,
+    recurse => true,
     mode    => '0644',
     owner   => 'apache',
     group   => 'apache'
@@ -20,9 +20,9 @@ node default {
 
   file { '/var/www':
     ensure  => 'directory',
-    recurse => remote,
+    recurse => true,
     mode    => '0644',
     owner   => 'apache',
-    group   => 'apache',
+    group   => 'apache'
   }
 }
