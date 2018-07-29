@@ -19,7 +19,19 @@ node default {
   }
 
   file { '/var/log/httpd':
-    ensure  => 'directory,
+    ensure  => 'directory',
+    mode    => '0755'
+  }
+
+  file { '/var/www':
+    ensure  => 'directory',
+    recurse => true,
+    owner   => 'apache',
+    group   => 'apache',
+  }
+
+  file { '/var/www':
+    ensure  => 'directory',
     mode    => '0755'
   }
 
