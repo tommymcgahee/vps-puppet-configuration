@@ -18,7 +18,7 @@ node default {
     group   => 'apache'
   }
 
-  file { '/var/www':
+  file { '/var/www/html':
     ensure  => 'directory',
     recurse => true,
     mode    => '0644',
