@@ -4,7 +4,7 @@ node default {
   }
 
   class { 'apache':
-    default_vhost => true
+    default_vhost => false
   }
 
   $myApacheVhosts = lookup('apache::vhosts', {})
@@ -12,17 +12,26 @@ node default {
 
   file { '/var/log/httpd':
     ensure  => 'directory',
-    owner   => 'apache',
-    group   => 'apache',
     recurse => true,
+    mode    => '0644'
+    owner   => 'apache',
+    group   => 'apache'
+  }
+
+  file { '/var/log/httpd':
+    ensure  => 'directory,
     mode    => '0755'
   }
 
   file { '/var/www':
     ensure  => 'directory',
+    recurse => true,
     owner   => 'apache',
     group   => 'apache',
-    recurse => true,
+  }
+
+  file { '/var/www':
+    ensure  => 'directory',
     mode    => '0755'
   }
 
