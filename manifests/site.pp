@@ -13,26 +13,10 @@ node default {
   file { '/var/log/httpd':
     ensure  => 'directory',
     recurse => true,
-    mode    => '0644'
+    mode    => '0644',
     owner   => 'apache',
     group   => 'apache'
   }
 
-  file { '/var/log/httpd':
-    ensure  => 'directory,
-    mode    => '0755'
-  }
-
-  file { '/var/www':
-    ensure  => 'directory',
-    recurse => true,
-    owner   => 'apache',
-    group   => 'apache',
-  }
-
-  file { '/var/www':
-    ensure  => 'directory',
-    mode    => '0755'
-  }
 
 }
