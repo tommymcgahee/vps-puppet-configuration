@@ -1,6 +1,6 @@
 class { 'profile::chrony':
 
-  class { '::chrony':
+  class { 'chrony':
     servers => lookup('chrony::servers', {merge => unique})
   }
 
