@@ -31,6 +31,7 @@ COPY docker/r10k.yaml /
 
 RUN chmod 600 /root/.ssh/id_rsa && ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts && \
     /opt/puppetlabs/puppet/bin/r10k deploy environment -p --config /r10k.yaml && \
+    tput setaf 2; echo "Checking module dependencies" && \
     /opt/puppetlabs/bin/puppet module list --tree
 
 ENTRYPOINT ["/opt/puppetlabs/bin/puppet"]
