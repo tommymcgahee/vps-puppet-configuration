@@ -13,3 +13,5 @@ apache::vhosts:
     docroot: '/var/www/html/'
     docroot_owner: apache
     docroot_group: apache
+    logroot_owner: apache
+    logroot_group: apache
