@@ -9,8 +9,7 @@ class profile::gems {
   package { 'thin':
     provider => 'gem',
     alias    => 'ruby-thin',
-    ensure   => 'installed',
-    require  => Package['g++']
+    ensure   => 'installed'
   }
 
 }
