@@ -11,33 +11,19 @@ node default {
   create_resources('apache::vhost', $myApacheVhosts)
 
   file { '/var/log/httpd':
-    ensure => 'directory',
-    owner  => 'apache',
-    group  => 'apache',
-    mode   => '0755'
+    ensure  => 'directory',
+    owner   => 'apache',
+    group   => 'apache',
+    recurse => true,
+    mode    => '0755'
   }
 
-  file { '/var/log/httpd/access_log':
-    ensure => 'file',
-    owner  => 'apache',
-    group  => 'apache'
+  file { '/var/www':
+    ensure  => 'directory',
+    owner   => 'apache',
+    group   => 'apache',
+    recurse => true,
+    mode    => '0755'
   }
 
-  file { '/var/log/httpd/default_error.log':
-    ensure => 'file',
-    owner  => 'apache',
-    group  => 'apache'
-  }
-
-  file { '/var/log/httpd/error_log':
-    ensure => 'file',
-    owner  => 'apache',
-    group  => 'apache'
-  }
-
-  file { '/var/log/httpd/error_log.log':
-    ensure => 'file',
-    owner  => 'apache',
-    group  => 'apache'
-  }
 }
