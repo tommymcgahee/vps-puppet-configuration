@@ -28,6 +28,12 @@ node default {
     group  => 'apache'
   }
 
+  file { '/var/log/httpd/error_log':
+    ensure => 'file',
+    owner  => 'apache',
+    group  => 'apache'
+  }
+
   file { '/var/log/httpd/error_log.log':
     ensure => 'file',
     owner  => 'apache',
