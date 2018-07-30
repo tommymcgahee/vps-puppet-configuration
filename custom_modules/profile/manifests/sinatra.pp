@@ -7,6 +7,12 @@ class profile::sinatra {
     before  => Package['thin']
   }
 
+  file { '/opt/puppetlabs/puppet/bin/gem':
+    ensure => 'link',
+    target => '/usr/local/bin/gem',
+    before => [ Package['sinatra'], Package['thin'] ]
+  }
+
   package { 'sinatra':
     provider => 'gem',
     alias    => 'ruby-sinatra',
