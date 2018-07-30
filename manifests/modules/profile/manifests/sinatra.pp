@@ -1,6 +1,9 @@
 class profile::sinatra {
 
-  require devtools
+  package { 'ruby-devel':
+    provider => 'yum',
+    ensure   => 'installed',
+  }
 
   package { 'sinatra':
     provider => 'gem',
