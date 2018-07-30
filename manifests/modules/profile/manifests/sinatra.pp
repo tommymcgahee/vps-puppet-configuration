@@ -1,6 +1,6 @@
 class profile::sinatra {
 
-  require ::profile::devtools
+  require devtools
 
   package { 'sinatra':
     provider => 'gem',
