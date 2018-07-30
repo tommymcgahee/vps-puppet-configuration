@@ -1,4 +1,4 @@
-class profile::dev_tools {
+class profile::devtools {
 
   package { 'ruby-devel':
     provider => 'yum',

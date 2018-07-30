@@ -1,12 +1,12 @@
 class profile::sinatra {
 
+  require ::profile::devtools
+
   package { 'sinatra':
     provider => 'gem',
     alias    => 'ruby-sinatra',
     ensure   => 'installed'
   }
-
-  require profile::dev_tools
 
   package { 'thin':
     provider => 'gem',
