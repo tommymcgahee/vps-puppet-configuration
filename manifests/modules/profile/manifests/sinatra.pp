@@ -15,7 +15,7 @@ class profile::sinatra {
     provider => 'gem',
     alias    => 'ruby-thin',
     ensure   => 'installed',
-    require  => Package['ruby_devel']
+    require  => Package['ruby-devel']
   }
 
 }
