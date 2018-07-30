@@ -1,8 +1,10 @@
 class profile::sinatra {
 
-  package { 'ruby-devel':
-    provider => 'yum',
-    ensure   => 'installed',
+
+  exec { 'yum groupinstall Development Tools':
+    command => '/usr/bin/yum -y --disableexcludes=all groupinstall "Development Tools"',
+    unless  => '/usr/bin/yum grouplist "Development Tools" | /bin/grep "^Installed"',
+    timeout => 600 ,
   }
 
   package { 'sinatra':
