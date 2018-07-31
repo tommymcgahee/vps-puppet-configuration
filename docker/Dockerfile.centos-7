@@ -32,6 +32,7 @@ COPY r10k/r10k.yaml /
 RUN chmod 600 /root/.ssh/id_rsa && ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
 
 ADD scripts/entrypoint.sh /opt/
+RUN ls -al /opt/ | grep entrypoint
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
 cmd ["echo", "Beginning docker run..."]
