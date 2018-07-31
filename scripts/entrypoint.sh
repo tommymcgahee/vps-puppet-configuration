@@ -11,7 +11,7 @@ set -e
 /opt/puppetlabs/puppet/bin/r10k deploy environment -p --config /r10k.yaml
 
 # r10k does NOT do module dependency resolution, so we need Puppet to check for that
-tput setaf 2; echo "Checking module dependencies"
+echo "Checking module dependencies"
 /opt/puppetlabs/bin/puppet module list --tree
 
 # Compile and apply catalog(s)
