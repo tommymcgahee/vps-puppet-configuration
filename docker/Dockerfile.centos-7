@@ -27,14 +27,13 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm 
 RUN /opt/puppetlabs/puppet/bin/gem install r10k:"$R10K_VERSION"
 
 COPY keys/*_rsa /root/.ssh/
-COPY docker/r10k.yaml /
+COPY r10k/r10k.yaml /
 
-RUN chmod 600 /root/.ssh/id_rsa && ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts && \
-    /opt/puppetlabs/puppet/bin/r10k deploy environment -p --config /r10k.yaml && \
-    tput setaf 2; echo "Checking module dependencies" && \
-    /opt/puppetlabs/bin/puppet module list --tree
+RUN chmod 600 /root/.ssh/id_rsa && ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
 
-ENTRYPOINT ["/opt/puppetlabs/bin/puppet"]
-CMD ["apply"]
+ADD scripts/entrypoint.sh /opt/
+
+ENTRYPOINT ["/opt/entrypoint.sh"]
+cmd ["echo", "Beginning docker run..."]
 
 COPY docker/Dockerfile.centos-7 /

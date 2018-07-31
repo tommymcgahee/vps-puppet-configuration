@@ -19,7 +19,10 @@ before_install:
   - sudo docker build --no-cache --rm --file=docker/Dockerfile.centos-${OS_VERSION} -t puppettest .
 
 script:
+  # use this for Travis CI
   - sudo docker run puppettest
+  # use this for local docker testing
+  # - docker run --rm -it -e DEV_MODE=true
 
 after_success:
   # - bash scripts/deploy.sh
